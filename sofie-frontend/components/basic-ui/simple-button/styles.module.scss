@@ -1,0 +1,31 @@
+.button {
+  @apply font-bold text-sm py-2 w-full cursor-pointer border-none flex items-center justify-center gap-2;
+
+  &.black {
+    @apply bg-black text-white hover:bg-gray-900;
+
+    &.disable {
+      @apply cursor-default bg-gray-900;
+    }
+  }
+
+  &.primary {
+    @apply bg-indigo-500 text-white hover:bg-indigo-400;
+
+    &.disable {
+      @apply cursor-default bg-indigo-400;
+    }
+  }
+
+  &.yellow {
+    @apply bg-orange-500 text-orange-800 hover:bg-orange-400;
+
+    &.disable {
+      @apply cursor-default bg-orange-400;
+    }
+  }
+
+  &.label {
+    @apply rounded-sm;
+  }
+}

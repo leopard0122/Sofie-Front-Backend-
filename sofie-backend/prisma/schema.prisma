@@ -1,0 +1,278 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Users {
+  id                    String                  @id @unique @default(uuid())
+  first_name            String
+  last_name             String
+  birthdate             DateTime?
+  gender                String?
+  User_Email            User_Email[]
+  User_Phone_Number     User_Phone_Number[]
+  User_Profile          User_Profile[]
+  User_Device           User_Device[]
+  User_Life_Insurance   User_Life_Insurance[]
+  User_Health_Insurance User_Health_Insurance[]
+  User_Vehicles         User_Vehicles[]
+  User_Relatives        User_Relatives[]
+  Residence             Residence[]
+  Nationality           Nationality[]
+  User_Employment       User_Employment[]
+  User_Business         User_Business[]
+  User_Loan             User_Loan[]
+  User_Guarantor        User_Guarantor[]
+  User_Self_Guarantee   User_Self_Guarantee[]
+}
+
+model User_Phone_Number {
+  id              String   @id @unique @default(uuid())
+  user_id         String
+  country_code_id String?
+  phone_number    String   @unique
+  user            Users    @relation(fields: [user_id], references: [id], onDelete: Cascade)
+  country_code    Country? @relation(fields: [country_code_id], references: [id], onDelete: Cascade)
+}
+
+model User_Email {
+  id      String @id @unique @default(uuid())
+  user_id String
+  email   String @unique
+  user    Users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Profile {
+  id                                       String  @id @unique @default(uuid())
+  user_id                                  String
+  have_car_insurance                       String?
+  why_shop_car_insurance                   String?
+  no_car_insurance                         String?
+  have_life_insurance                      String?
+  why_shop_life_insurance                  String?
+  no_life_insurance                        String?
+  when_ready_life_insurance                String?
+  why_shop_health_insurance                String?
+  no_health_insurance                      String?
+  when_ready_medical_insurance             String?
+  monthly_pretax_income                    String?
+  current_status_employed_or_self_employed String?
+  user                                     Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Device {
+  id                String  @id @unique @default(uuid())
+  user_id           String
+  ipv4              String?
+  ipv6              String?
+  latitude          String?
+  longitude         String?
+  browser           String?
+  isp               String?
+  city              String?
+  region            String?
+  country           String?
+  asn               String?
+  user_agent        String?
+  javascript        String?
+  cookie            String?
+  screen_resolution String?
+  device_name       String?
+  utm_source        String?
+  utm_medium        String?
+  utm_campaign      String?
+  utm_term          String?
+  utm_content       String?
+  user_device_id    String?
+  suvmitted_at      String?
+  user              Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Life_Insurance {
+  id                            String  @id @unique @default(uuid())
+  user_id                       String
+  health_status                 String?
+  life_amount_insured_requested String?
+  use_nicotine_products         String?
+  pre_existing_conditions       String?
+  user                          Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Health_Insurance {
+  id                         String @id @unique @default(uuid())
+  user_id                    String
+  type_of_medical_cover      String
+  location_for_cover         String
+  type_of_plan_interested_in String
+  user                       Users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Vehicles {
+  id                        String  @id @unique @default(uuid())
+  user_id                   String
+  vehicle_year              String?
+  vehicle_brand             String?
+  vehicle_model             String?
+  vehicle_value             String?
+  vehicle_status            String?
+  vehicle_purpose           String?
+  vehicle_insurance         String?
+  vehicle_current_insurance String?
+  user                      Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Relatives {
+  id                String    @id @unique @default(uuid())
+  user_id           String
+  first_name        String?
+  last_name         String?
+  birthdate         DateTime?
+  relationship_type String?
+  user              Users     @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Residence {
+  id                           String @id @unique @default(uuid())
+  user_id                      String
+  current_residency_country_id String
+  user                         Users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Nationality {
+  id                     String @id @unique @default(uuid())
+  user_id                String
+  nationality_country_id String
+  user                   Users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Insurance_Provider_Contact {
+  id                    String            @id @unique @default(uuid())
+  insurance_compancy_id String
+  first_name            String
+  last_name             String
+  tel_contact           String?
+  email                 String?
+  insurance_company     Insurance_Company @relation(fields: [insurance_compancy_id], references: [id], onDelete: Cascade)
+}
+
+model Insurance_Company {
+  id                         String                       @id @unique @default(uuid())
+  country_id                 String
+  insurance_comapny          String?
+  website                    String?
+  Insurance_Provider_Contact Insurance_Provider_Contact[]
+  country                    Country                      @relation(fields: [country_id], references: [id], onDelete: Cascade)
+}
+
+model User_Employment {
+  id                  String  @id @unique @default(uuid())
+  user_id             String
+  current_employment  String?
+  employment_status   String?
+  employment_sector   String?
+  current_occuptation String?
+  user                Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Business {
+  id                                    String  @id @unique @default(uuid())
+  user_id                               String
+  business_name                         String?
+  nature_of_business_id_business_sector String?
+  type_of_legal_entity                  String?
+  monthly_revenue_12_months             String?
+  any_existing_loan                     String?
+  age_of_business                       String?
+  user                                  Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Loan {
+  id                           String  @id @unique @default(uuid())
+  user_id                      String
+  currently_using_logbook_loan String?
+  type_of_security             String?
+  user                         Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Guarantor {
+  id                       String  @id @unique @default(uuid())
+  user_id                  String
+  first_name               String?
+  last_name                String?
+  relationship_with_userid String?
+  acceptance_for_loan      String?
+  vehicle_year             String?
+  vehicle_model            String?
+  vehicle_value            String?
+  vehicle_status           String?
+  vehicle_purpose          String?
+  vehicle_insurance        String?
+  user                     Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model User_Self_Guarantee {
+  id                String  @id @unique @default(uuid())
+  user_id           String
+  vehicle_year      String?
+  vehicle_brand     String?
+  vehicle_model     String?
+  vehicle_value     String?
+  vehicle_status    String?
+  vehicle_purpose   String?
+  vehicle_insurance String?
+  user              Users   @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
+model Business {
+  id              String @id @unique @default(uuid())
+  business_sector String
+}
+
+model Continent {
+  id             String    @id @unique @default(uuid())
+  continent_name String
+  Country        Country[]
+}
+
+model Country {
+  id                String              @id @unique @default(uuid())
+  full_name         String?
+  short_name        String?
+  nationality       String?
+  currency          String?
+  currency_symbol   String?
+  alpha_3_code      String?
+  alpha_2_code      String?
+  un_code           String?
+  capital_city      String?
+  country_code      String?
+  timezone          String?
+  continent_id      String?
+  User_Phone_Number User_Phone_Number[]
+  Insurance_Company Insurance_Company[]
+  State             State[]
+  City              City[]
+  continent         Continent?          @relation(fields: [continent_id], references: [id], onDelete: Cascade)
+}
+
+model State {
+  id         String  @id @unique @default(uuid())
+  country_id String
+  state_name String
+  country    Country @relation(fields: [country_id], references: [id], onDelete: Cascade)
+}
+
+model City {
+  id         String  @id @unique @default(uuid())
+  country_id String
+  state_id   String?
+  city       String?
+  country    Country @relation(fields: [country_id], references: [id], onDelete: Cascade)
+}

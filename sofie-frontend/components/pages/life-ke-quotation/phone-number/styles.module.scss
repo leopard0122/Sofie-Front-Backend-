@@ -1,0 +1,7 @@
+.wrapper {
+  @apply relative space-y-1 w-full;
+
+  .error {
+    @apply text-sm text-red-500;
+  }
+}

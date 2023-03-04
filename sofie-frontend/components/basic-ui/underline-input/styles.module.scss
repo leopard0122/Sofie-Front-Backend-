@@ -1,0 +1,5 @@
+.wrapper {
+  .input {
+    @apply w-full outline-none border-x-0 border-t-0 border-b-gray-300 placeholder-indigo-300 focus:border-b-indigo-500 p-1 text-base text-indigo-500 text-lg;
+  }
+}

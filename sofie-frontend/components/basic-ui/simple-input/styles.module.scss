@@ -1,0 +1,9 @@
+.wrapper {
+  .input {
+    @apply border rounded-none p-2 w-full outline-none uppercase;
+  }
+
+  .invalidFeedback {
+    @apply text-red-500 text-sm;
+  }
+}

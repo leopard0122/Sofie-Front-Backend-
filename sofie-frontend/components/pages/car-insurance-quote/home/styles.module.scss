@@ -1,0 +1,23 @@
+.wrapper {
+  @apply w-full h-full flex flex-col justify-between;
+
+  .content {
+    @apply grid lg:grid-cols-5 items-center h-full;
+
+    .body {
+      @apply px-5 md:px-20 space-y-6 lg:col-span-3;
+
+      .buttonDiv {
+        @apply w-32;
+      }
+    }
+
+    .animatedMediaWrapper {
+      @apply hidden lg:block m-auto lg:col-span-2;
+
+      .image {
+        @apply max-w-xs;
+      }
+    }
+  }
+}

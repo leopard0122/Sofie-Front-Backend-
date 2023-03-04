@@ -1,0 +1,80 @@
+html,
+body {
+  height: 100%;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+#__next {
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.react-tel-input .form-control {
+  background-color: white !important;
+  border-radius: 0 !important;
+  font-size: 1.125rem !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px rgb(209 213 219) !important;
+  color: rgb(99 102 241) !important;
+
+  @apply placeholder:text-indigo-300;
+}
+
+.react-tel-input .form-control:focus {
+  border-bottom: solid 2px rgb(99 102 241) !important;
+}
+
+.react-tel-input .flag-dropdown {
+  border-radius: 0 !important;
+  background-color: white !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px rgb(99 102 241) !important;
+}
+
+.css-1s2u09g-control {
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px rgb(209 213 219) !important;
+}
+
+.css-1pahdxg-control {
+  border-radius: 0 !important;
+  background-color: white !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: solid 2px rgb(99 102 241) !important;
+  box-shadow: none !important;
+}
+
+.css-1okebmr-indicatorSeparator {
+  display: none;
+}
+
+.css-qc6sy-singleValue {
+  @apply text-indigo-500;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+input[type="date"]::-webkit-input-placeholder {
+  visibility: hidden !important;
+}

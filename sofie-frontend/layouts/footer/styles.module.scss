@@ -1,0 +1,7 @@
+.wrapper {
+  @apply flex-none fixed left-0 bottom-0;
+
+  .text {
+    @apply flex text-center w-full text-xs text-gray-500 py-4 h-32;
+  }
+}

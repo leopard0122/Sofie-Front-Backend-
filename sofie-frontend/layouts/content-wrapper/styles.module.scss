@@ -1,0 +1,27 @@
+.wrapper {
+  @apply h-full w-full relative items-center;
+
+  div:has(.content) {
+    @apply w-full h-full flex;
+
+    .content {
+      @apply h-fit w-full my-auto px-5 lg:px-20 2xl:px-40 space-y-3;
+
+      .title {
+        @apply mb-4;
+      }
+
+      .description {
+        @apply text-gray-600;
+      }
+
+      .button {
+        @apply w-16;
+      }
+    }
+  }
+
+  .buttonGroup {
+    @apply w-16 rounded-md flex fixed right-5 sm:right-20 lg:right-40 bottom-16;
+  }
+}

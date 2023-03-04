@@ -1,0 +1,19 @@
+.wrapper {
+  @apply relative w-full pr-10 flex justify-between items-center p-2 text-indigo-500 bg-indigo-100 border border-indigo-500 cursor-pointer hover:bg-indigo-200;
+
+  .keyboard {
+    @apply bg-white border border-solid border-indigo-500 text-indigo-500 text-xs p-1 rounded-sm mr-2;
+
+    &.selected {
+      @apply bg-indigo-500 text-white;
+    }
+  }
+
+  .label {
+    @apply text-left w-full pr-1 my-auto;
+  }
+
+  .icon {
+    @apply absolute right-2
+  }
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  @apply text-center space-y-6 pb-6;
+
+  .imageDiv {
+    @apply max-w-xs mx-auto;
+  }
+
+  .buttonDiv {
+    @apply w-24 mx-auto;
+  }
+}

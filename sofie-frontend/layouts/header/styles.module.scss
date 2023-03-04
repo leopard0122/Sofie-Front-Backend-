@@ -1,0 +1,7 @@
+.wrapper {
+  @apply flex items-end flex-none h-20;
+
+  .content {
+    @apply cursor-pointer;
+  }
+}

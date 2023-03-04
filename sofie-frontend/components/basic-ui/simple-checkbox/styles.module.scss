@@ -1,0 +1,11 @@
+.wrapper {
+  @apply relative flex items-start;
+
+  .input {
+    @apply flex items-center h-5;
+  }
+
+  .label {
+    @apply ml-3 text-sm;
+  }
+}

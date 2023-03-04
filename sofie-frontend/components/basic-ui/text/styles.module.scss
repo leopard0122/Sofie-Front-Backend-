@@ -1,0 +1,27 @@
+.base {
+  @apply text-left text-gray-600;
+
+  &.xs {
+    @apply text-xs;
+  }
+
+  &.sm {
+    @apply text-sm;
+  }
+
+  &.md {
+    @apply text-base;
+  }
+
+  &.lg {
+    @apply text-xl;
+  }
+
+  &.xl {
+    @apply text-2xl;
+  }
+
+  &.xxl {
+    @apply text-2xl leading-snug font-semibold md:text-4xl;
+  }
+}

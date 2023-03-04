@@ -1,0 +1,11 @@
+.wrapper {
+  @apply h-full flex flex-col;
+
+  .progressBar {
+    @apply fixed w-screen left-0 top-0;
+  }
+
+  .body {
+    @apply flex-1 h-full flex items-center pt-4 pb-32;
+  }
+}

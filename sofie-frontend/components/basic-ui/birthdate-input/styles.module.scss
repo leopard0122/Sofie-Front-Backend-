@@ -1,0 +1,15 @@
+.wrapper {
+  @apply items-end text-xs;
+
+  .header {
+    @apply pl-1 flex gap-2 text-indigo-500;
+  }
+
+  .input {
+    @apply focus:bg-white bg-white w-full outline-none border-x-0 border-t-0 border-b-gray-300 placeholder-indigo-300 focus:border-b-indigo-500 p-1 text-base text-indigo-500 text-lg;
+  }
+
+  .error {
+    @apply text-red-500 text-sm;
+  }
+}
